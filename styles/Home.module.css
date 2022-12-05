@@ -1,3 +1,8 @@
+.images {
+  max-width: 640px;
+  max-height: 360px;
+}
+
 .header {
   line-height: 1.15;
   font-size: 1.5rem;
@@ -5,6 +10,10 @@
   /* color: rgb(41, 41, 156); */
 }
 
+.howText {
+  max-width: 640px;
+  text-align: justify;
+}
 .content{
   display: flex;
   flex-direction: column;
