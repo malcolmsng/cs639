@@ -1,6 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import boxes from "../assets/boxes.jpg";
+import noBoxes from "../assets/carpark-image.png";
+import detection from "../assets/detection.gif";
 
 export default function Home() {
   return (
@@ -13,15 +16,77 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          CS639 <h2 className={styles.subtitle}>Parking Lot Detector</h2>
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <code className={styles.code}>Malcolm Sng, Teng Jianling</code>
+      </main>
+      <div classnName={styles.content}>
+        <h2 className={styles.header}>Problem Statement</h2>
+        <div>
+          Finding parking for our vehicles is a headache for many people,
+          especially during peak hours at popular parking areas (shopping malls,
+          workplaces, etc) or at event venues (football games, concerts,
+          parties, etc). This is made worse when people drive to the carpark and
+          have to wait in line for long periods or find alternative parking when
+          they realise that the car park is full.
+        </div>
+        <h2 className={styles.header}>Current Implementations</h2>
+        <div>
+          Current implementations include:
+          <ol>
+            <li>Using cameras to monitor the occupancy of the opposite lot.</li>
+            <li>Using GPS tracking</li>
+          </ol>
+          There are several problems with the above methods. For example, it
+          would be costly for businesses to purchase one camera for every
+          parking lot, which may be a requirement for the first implementation.
+          Next, many open air car parks would not have the infrastructure
+          available to support such an implementation. For the second
+          implementation, not all devices which are at a specific car park is
+          driving, there may also be multiple devices emitting location data in
+          a single vehicle, which reduces accuracy of such an implementatio
+        </div>
+        <h2 className={styles.header}>Proposed Solution</h2>
+        <div>
+          We propose a parking availability tracker, using aerial videos. The
+          program will recognise the difference between a vehicle/ unusable lot
+          and an empty lot, provide a count of the total number of vehicles and
+          empty lots in a carpark at any one time, and relay the information to
+          display boards/ tracking websites
+        </div>
+        <h2 className={styles.header}>How It Works</h2>
+        <div>
+          <Image src={noBoxes} alt=""></Image>
+        </div>
+        <div>
+          We first create boxes around the picture of a carpark to identify each
+          parking lot, this is done by running a script which creates a
+          rectangle every time you left click using your mouse
+        </div>
+        <div>
+          <Image src={boxes} alt=""></Image>
+        </div>
+        <div>
+          The resultant picture look likes the above. The algorithm then
+          identifies when a parking lot is filled
+        </div>
+        <h2 className={styles.header}>Results</h2>
+        <div>
+          <Image src={detection} alt=""></Image>
+        </div>
+        <div>
+          We test the detection algorithm on a video of the same carpark. Empty
+          lots are identified by a green rectangle, while filled lots are
+          identified by a red rectangle.
+        </div>
+      </div>
+    </div>
+  );
+}
 
-        <div className={styles.grid}>
+{
+  /* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
@@ -51,21 +116,20 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
-      </main>
+        </div> */
+}
 
-      <footer className={styles.footer}>
+{
+  /* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
-    </div>
-  )
+      </footer> */
 }
