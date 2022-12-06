@@ -24,6 +24,12 @@ export default function Home() {
         </h1>
 
         <code className={styles.code}>Malcolm Sng, Teng Jianling</code>
+        <a
+          className={styles.presentation}
+          href="https://drive.google.com/file/d/1vfwyxYYUZOR4uNBOsU09TTskOplwm8SN/view?usp=sharing"
+        >
+          Our Presentation
+        </a>
       </main>
       <div classnName={styles.content}>
         <h2 className={styles.header}>Problem Statement</h2>

@@ -3,6 +3,12 @@
   max-height: 360px;
 }
 
+.presentation {
+  color:#0070f3;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
 .header {
   line-height: 1.15;
   font-size: 1.5rem;
